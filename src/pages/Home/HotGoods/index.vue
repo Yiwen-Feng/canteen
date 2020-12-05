@@ -35,32 +35,32 @@ export default {
     return {
       hotGoods: [
         {
-          mallPrice: 13.90,
-          image: require("@/assets/imgs/hotGoods1.jpeg"),
+          mallPrice: 7.00,
+          image: require("@/assets/imgs/hot1.jpg"),
           goodsId: "1",
-          price: 13.90,
-          name: "书"
+          price: 7.00,
+          name: "肠粉"
         },
         {
-          mallPrice: 23.90,
-          image: require("@/assets/imgs/sanguo.jpg"),
+          mallPrice: 14.00,
+          image: require("@/assets/imgs/hot2.jpg"),
           goodsId: "5ee043a9f6a000000a7b191b",
-          price: 23.90,
-          name: "三国演义"
+          price: 14.00,
+          name: "牛肉面"
         },
         {
-          mallPrice: 33.90,
-          image: require("@/assets/imgs/hotGoods3.png"),
+          mallPrice: 10.00,
+          image: require("@/assets/imgs/hot3.jpg"),
           goodsId: "3",
-          price: 33.90,
-          name: "偷影子的人"
+          price: 12.00,
+          name: "兰州拉面"
         },
         {
-          mallPrice: 43.90,
-          image: require("@/assets/imgs/hotGoods4.png"),
+          mallPrice: 14.00,
+          image: require("@/assets/imgs/hot4.jpg"),
           goodsId: "4",
-          price: 43.90,
-          name: "解忧杂货店"
+          price: 15.00,
+          name: "鸡扒饭"
         }
       ]
     };

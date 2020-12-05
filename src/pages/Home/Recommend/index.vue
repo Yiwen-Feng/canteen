@@ -10,8 +10,8 @@
         <img
           v-lazy="item.image"
           class="recommend-img"
-          width="300"
-          height="180"
+          width="30"
+          height="100"
           @click="goGoodsDetails(item)"
         />
         <p class="name">{{ item.goodsName }}</p>
@@ -58,53 +58,53 @@ export default {
       },
       recommend: [
         {
-          image: require("@/assets/imgs/recommend1.jpeg"),
-          mallPrice: 26.8,
+          image: require("@/assets/imgs/recommend1.jpg"),
+          mallPrice: 15.0,
           goodsId: "1",
-          price: 16.8,
-          goodsName: "光"
+          price: 18.0,
+          goodsName: "五谷渔粉"
         },
         {
-          image: require("@/assets/imgs/recommend2.png"),
-          mallPrice: 36.8,
+          image: require("@/assets/imgs/recommend2.jpg"),
+          mallPrice: 15.0,
           goodsId: "2",
-          price: 16.8,
-          goodsName: "想念少年的你"
+          price: 15.0,
+          goodsName: "咖喱牛肉饭"
         },
         {
-          image: require("@/assets/imgs/recommend3.png"),
-          mallPrice: 46.8,
+          image: require("@/assets/imgs/recommend3.jpg"),
+          mallPrice: 13.8,
           goodsId: "3",
-          price: 16.8,
-          goodsName: "查令十字街84号"
+          price: 13.8,
+          goodsName: "麻辣烫"
         },
         {
-          image: require("@/assets/imgs/recommend4.png"),
-          mallPrice: 56.8,
+          image: require("@/assets/imgs/recommend4.jpg"),
+          mallPrice: 12.0,
           goodsId: "3",
-          price: 16.8,
-          goodsName: "杨绛传"
+          price: 12.8,
+          goodsName: "炒饭"
         },
         {
-          image: require("@/assets/imgs/recommend5.png"),
-          mallPrice: 66.8,
+          image: require("@/assets/imgs/recommend5.jpeg"),
+          mallPrice: 18.0,
           goodsId: "3",
-          price: 16.8,
-          goodsName: "孤独是生命的礼物"
+          price: 20.0,
+          goodsName: "酸菜鱼"
         },
         {
-          image: require("@/assets/imgs/recommend6.png"),
-          mallPrice: 76.8,
+          image: require("@/assets/imgs/recommend6.jpg"),
+          mallPrice: 16.0,
           goodsId: "3",
           price: 16.8,
-          goodsName: "万事有心，人间有味"
+          goodsName: "重庆小面"
         },
         {
-          image: require("@/assets/imgs/recommend7.png"),
-          mallPrice: 16.8,
+          image: require("@/assets/imgs/recommend7.jpg"),
+          mallPrice: 13.0,
           goodsId: "3",
-          price: 16.8,
-          goodsName: "苏东坡传"
+          price: 13.0,
+          goodsName: "烤鱼饭"
         }
       ]
     };

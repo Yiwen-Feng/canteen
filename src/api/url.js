@@ -4,7 +4,8 @@ export const Url = {
   TestApi: "https://afgwgu.toutiao15.com/findFromGoods", //测试
   searchApi: "https://afgwgu.toutiao15.com/searchTest", //搜索
   searchApi1: "https://af2pds.toutiao15.com/search",
-  categorysListApi: "https://afgwgu.toutiao15.com/findByCategory", // 分类商品列表
+  //categorysListApi: "https://afgwgu.toutiao15.com/findByCategory", // 分类商品列表
+  categorysListApi: "https://af2pds.fn.thelarkcloud.com/findByCategory",
   getOrderListApi: "https://af2pds.toutiao15.com/get_orderlist_byid",
   getOrderApi: "https://af2pds.toutiao15.com/get_order_byid",
   getCommodityApi: "https://af2pds.toutiao15.com/get_commodity_byid",

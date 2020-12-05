@@ -18,12 +18,11 @@
         v-on:scrollEnd="rankScrollEnd"
       >
         <van-tabs v-model="active" color="#F79709">
-          <van-tab title="历史文化">
+          <van-tab title="粉面">
             <van-collapse v-model="activeNames">
               <van-collapse-item title="显微镜下的大明" name="1" icon="bar-chart-o">
                 <van-card
                   price="36.90"
-                  desc="于细微除读懂真正的古代中国"
                   title="显微镜下的大明"
                   thumb="http://img3m7.ddimg.cn/41/7/1502215547-1_b_1.jpg"
                   thumb-link="https://book.douban.com/subject/30414743/"
@@ -49,7 +48,7 @@
             </van-collapse>
           </van-tab>
 
-          <van-tab title="传记人物">
+          <van-tab title="自选">
             <van-collapse v-model="activeNames">
               <van-collapse-item title="你当像鸟飞往你的山" name="4" icon="bar-chart-o">
                 <van-card
@@ -77,7 +76,7 @@
               </van-collapse-item>
             </van-collapse>
           </van-tab>
-          <van-tab title="推理悬疑">
+          <van-tab title="套餐">
             <van-collapse v-model="activeNames">
               <van-collapse-item title="网内人" name="7" icon="bar-chart-o">
                 <van-card
@@ -101,34 +100,6 @@
                   desc="一场阿加莎·克里斯蒂式的谋杀盛宴"
                   title="喜鹊谋杀案"
                   thumb="http://img3m0.ddimg.cn/6/8/27876030-1_b_3.jpg"
-                />
-              </van-collapse-item>
-            </van-collapse>
-          </van-tab>
-          <van-tab title="科幻奇幻">
-            <van-collapse v-model="activeNames">
-              <van-collapse-item title="醉步男" name="10" icon="bar-chart-o">
-                <van-card
-                  price="43.80"
-                  desc="时间旅行小说的不朽经典，诡异硬核"
-                  title="醉步男"
-                  thumb="http://img3m1.ddimg.cn/78/33/27920751-1_b_5.jpg"
-                />
-              </van-collapse-item>
-              <van-collapse-item title="呼吸" name="11" icon="bar-chart-o">
-                <van-card
-                  price="37.80"
-                  desc="融科幻的诗意和哲学的浪漫为一体"
-                  title="呼吸"
-                  thumb="http://img3m4.ddimg.cn/37/34/28482634-1_b_6.jpg"
-                />
-              </van-collapse-item>
-              <van-collapse-item title="群星" name="12" icon="bar-chart-o">
-                <van-card
-                  price="45.00"
-                  desc="文明之间，没有对抗，只有碾压"
-                  title="群星"
-                  thumb="http://img3m1.ddimg.cn/93/29/28486551-1_b_3.jpg"
                 />
               </van-collapse-item>
             </van-collapse>

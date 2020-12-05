@@ -44,7 +44,7 @@
           <banner :slides="staticHomeDataSlides"></banner>
           <!-- 分类 -->
           <!--<category v-if="homeData.advertesPicture" :category="homeData.category" :advertesPicture="homeData.advertesPicture.PICTURE_ADDRESS"></category>-->
-          <category :category="staticHomeDataCategory"></category>
+          <!-- <category :category="staticHomeDataCategory"></category> -->
           <!-- 推荐商品 -->
           <recommend :recommend="homeData.recommend"></recommend>
           <!-- 楼层商品 -->
@@ -86,7 +86,7 @@
 
 <script>
 import Banner from "./Banner";
-import Category from "./Category";
+// import Category from "./Category";
 import Recommend from "./Recommend";
 import Floor from "./Floor";
 import HotGoods from "./HotGoods";
@@ -104,7 +104,7 @@ export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {
     Banner,
-    Category,
+    // Category,
     Recommend,
     Floor,
     HotGoods,
@@ -118,31 +118,27 @@ export default {
       homeData: {}, // 首页数据，正常写法
       staticHomeDataSlides: [
         {
-          image:
-            "http://img63.ddimg.cn/upload_img/00785/ts0428_0510/1242x366-1587972958.jpg",
+          image: require("@/assets/imgs/display1.jpeg"),
           goodsId: "b1195296679f482aa7d54d95ac2b4a94"
         },
         {
-          image: require("@/assets/imgs/slides1.jpeg"),
+          image: require("@/assets/imgs/display2.jpg"),
           goodsId: "b11sf4d1f510vd6a7d51vd5s1v165a14"
         },
         {
-          image:
-            "http://img63.ddimg.cn/upload_img/00803/1/1242x366-1588053862.jpg",
+          image: require("@/assets/imgs/display3.jpg"),
           goodsId: "da34d6f381464a219b37a9ac0ad579e8"
         },
         {
-          image:
-            "http://img60.ddimg.cn/upload_img/00817/ershoushu/100-1564985916.jpg",
+          image: require("@/assets/imgs/display4.jpg"),
           goodsId: "ad176e397858448a854dc50371334faf"
         },
         {
-          image:
-            "http://img60.ddimg.cn/upload_img/00478/0609/czs-750x315-1587892307.jpg",
+          image: require("@/assets/imgs/display5.jpg"),
           goodsId: "ada1s639df58448a854dc5156165461d"
         },
         {
-          image: "http://img63.ddimg.cn/topic_img/gys_04584/750x315zyhrj.jpg",
+          image: require("@/assets/imgs/display6.jpg"),
           goodsId: "ada1s6csa1548a8541984062cdf8v1d5"
         }
       ],

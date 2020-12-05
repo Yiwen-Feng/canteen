@@ -75,24 +75,12 @@ export default {
       categoryList: [
         {
           CategoryId: "1",
-          CategoryName: "小说",
+          CategoryName: "自选米饭",
           SubList: [
             {
               SubId: "1",
-              SubCategoryId: "1",
-              SubName: "悬疑推理",
-              comments: null
-            },
-            {
-              SubId: "2",
-              SubCategoryId: "2",
-              SubName: "科幻奇幻",
-              comments: null
-            },
-            {
-              SubId: "3",
-              SubCategoryId: "3",
-              SubName: "爱情校园",
+              subCategoryId: "1",
+              SubName: "自选米饭",
               comments: null
             }
           ],
@@ -100,14 +88,15 @@ export default {
           image:
             "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
         },
+        
         {
           CategoryId: "2",
-          CategoryName: "文学",
+          CategoryName: "自选蔬菜",
           SubList: [
             {
               SubId: "2",
               SubCategoryId: "1",
-              SubName: "名家作品",
+              SubName: "自选蔬菜",
               comments: null
             }
           ],
@@ -117,12 +106,12 @@ export default {
         },
         {
           CategoryId: "3",
-          CategoryName: "动漫",
+          CategoryName: "自选荤菜",
           SubList: [
             {
               SubId: "3",
               SubCategoryId: "1",
-              SubName: "热血漫画",
+              SubName: "自选荤菜",
               comments: null
             }
           ],
@@ -132,14 +121,14 @@ export default {
         },
         {
           CategoryId: "4",
-          CategoryName: "人文社科",
+          CategoryName: "粉面类",
           SubList: [
             {
               SubId: "4",
               SubCategoryId: "1",
-              SubName: "时间管理",
+              SubName: "粉面",
               comments: null
-            }
+            },
           ],
           comments: null,
           image:
@@ -147,12 +136,12 @@ export default {
         },
         {
           CategoryId: "5",
-          CategoryName: "成功励志",
+          CategoryName: "广式点心",
           SubList: [
             {
               SubId: "5",
               SubCategoryId: "1",
-              SubName: "人生哲学",
+              SubName: "广式点心",
               comments: null
             }
           ],
@@ -162,12 +151,12 @@ export default {
         },
         {
           CategoryId: "6",
-          CategoryName: "文艺",
+          CategoryName: "套餐",
           SubList: [
             {
               SubId: "6",
               SubCategoryId: "1",
-              SubName: "文学艺术",
+              SubName: "套餐",
               comments: null
             }
           ],
@@ -177,12 +166,12 @@ export default {
         },
         {
           CategoryId: "7",
-          CategoryName: "童书",
+          CategoryName: "汤水饮料",
           SubList: [
             {
               SubId: "7",
-              subCategoryId: "1",
-              SubName: "科普益智",
+              SubCategoryId: "1",
+              SubName: "汤水饮料",
               comments: null
             }
           ],
@@ -190,51 +179,52 @@ export default {
           image:
             "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
         },
-        {
-          CategoryId: "8",
-          CategoryName: "经管",
-          SubList: [
-            {
-              SubId: "8",
-              subCategoryId: "1",
-              SubName: "经济管理",
-              comments: null
-            }
-          ],
-          comments: null,
-          image:
-            "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
-        },
-        {
-          CategoryId: "9",
-          CategoryName: "教育",
-          SubList: [
-            {
-              SubId: "1",
-              subCategoryId: "1",
-              SubName: "教材考试",
-              comments: null
-            }
-          ],
-          comments: null,
-          image:
-            "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
-        },
-        {
-          CategoryId: "10",
-          CategoryName: "电子书",
-          SubList: [
-            {
-              SubId: "1",
-              subCategoryId: "1",
-              SubName: "网络文学",
-              comments: null
-            }
-          ],
-          comments: null,
-          image:
-            "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
-        }
+        
+        // {
+        //   CategoryId: "8",
+        //   CategoryName: "经管",
+        //   SubList: [
+        //     {
+        //       SubId: "8",
+        //       subCategoryId: "1",
+        //       SubName: "经济管理",
+        //       comments: null
+        //     }
+        //   ],
+        //   comments: null,
+        //   image:
+        //     "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
+        // },
+        // {
+        //   CategoryId: "9",
+        //   CategoryName: "教育",
+        //   SubList: [
+        //     {
+        //       SubId: "1",
+        //       subCategoryId: "1",
+        //       SubName: "教材考试",
+        //       comments: null
+        //     }
+        //   ],
+        //   comments: null,
+        //   image:
+        //     "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
+        // },
+        // {
+        //   CategoryId: "10",
+        //   CategoryName: "电子书",
+        //   SubList: [
+        //     {
+        //       SubId: "1",
+        //       subCategoryId: "1",
+        //       SubName: "网络文学",
+        //       comments: null
+        //     }
+        //   ],
+        //   comments: null,
+        //   image:
+        //     "http://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png"
+        // }
       ]
     };
   },
