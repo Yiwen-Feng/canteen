@@ -1,0 +1,18 @@
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 11.5vw;
+  bottom: 13.5vw;
+  .content-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+.van-tabs__content{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 999;
+  overflow:scroll
+}
