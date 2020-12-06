@@ -3,12 +3,12 @@
     <top-bar title="评价商品" hasBack></top-bar>
     <!-- 商品评分 -->
     <section class="top-goods">
-      <div class="goods-img">
+      <!-- <div class="goods-img">
         <van-image src="goodsInfo.image_path" width="90" height="90">
           <template v-slot:error>加载失败</template>
         </van-image>
-        <!--<img :src="goodsInfo.image_path" :onerror="defImg" />-->
-      </div>
+        <img :src="goodsInfo.image_path" :onerror="defImg" />
+      </div> -->
       <div class="goods-rate">
         <p class="rate-txt">商品评价</p>
         <van-rate
@@ -68,7 +68,7 @@ export default {
       imgList: [], // 图片
       checked: false, // 是否匿名
       defImg: 'this.src="' + require("../../assets/imgs/error-img.png") + '"',
-      rateText: "非常满意"
+      rateText: "非常满意",
     };
   },
   created() {
@@ -97,14 +97,24 @@ export default {
     async submit() {
       if (!this.content) return this.$toast("请输入评论的内容~~");
 
+      // const args = {
+      //   goodsId: this.goodsId,
+      //   rate: this.rate,
+      //   content: this.content,
+      //   anonymous: this.checked,
+      //   images: this.imgList,
+      //   order_id: this.order_id,
+      //   orderNum: this.orderNum,
+      // };
+      var user_id = "";
+      if (!this.checked) {
+        user_id = this.global.log_id;
+      }
       const args = {
-        goodsId: this.goodsId,
-        rate: this.rate,
+        cid: this.goodsId,
+        uid: user_id,
+        star: this.rate,
         content: this.content,
-        anonymous: this.checked,
-        images: this.imgList,
-        order_id: this.order_id,
-        orderNum: this.orderNum
       };
       try {
         const res = await ajax.commentGoods(args);
@@ -132,8 +142,8 @@ export default {
       } else {
         this.rateText = "非常不满意";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

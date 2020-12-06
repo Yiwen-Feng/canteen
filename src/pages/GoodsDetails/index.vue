@@ -38,7 +38,7 @@
         text="评价"
         @click="goCommentGoods(item.id, item, id, item.count)"
       />
-      <van-goods-action-icon icon="cart-o" text="购物车" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="cart()" />
       <van-goods-action-button
         type="warning"
         text="加入购物车"
@@ -76,13 +76,13 @@ export default {
       user_id: this.global.log_id,
       item: {
         id: "",
-        title: "夏目友人帐",
-        text: "只要有想见的人，就不再会是孤身一人了",
-        price: 29,
-        count: 12,
+        title: "",
+        text: "",
+        price: 0,
+        count: 0,
         category_id: "",
         category: "",
-        imgUrl: require("@/assets/imgs/xiamu.png"),
+        imgUrl: "",
         comments: [],
       },
       stars: require("@/assets/imgs/stars.png"),

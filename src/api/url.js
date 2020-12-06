@@ -11,6 +11,7 @@ export const Url = {
   getCommodityApi: "https://af2pds.toutiao15.com/get_commodity_byid",
   getUseridByIdApi: "https://af2pds.toutiao15.com/get_userid_byid",
   getUser: "https://af2pds.toutiao15.com/get_user", //登录用
-  getUserInfo: "https://af2pds.toutiao15.com/get_user_byid"
+  getUserInfo: "https://af2pds.toutiao15.com/get_user_byid",
   //TestApi: "https://afgwgu.toutiao15.com/findOneFromGoodsTable
+  comment: "https://af2pds.fn.thelarkcloud.com/add_review"
 };
