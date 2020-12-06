@@ -133,7 +133,7 @@ export default {
       checkboxlist: [],
     };
   },
-  created() {
+  activated() {
     try {
       // var log_id = localStorage.getItem("log_id");
       this.get();

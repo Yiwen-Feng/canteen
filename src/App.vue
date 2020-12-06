@@ -27,7 +27,7 @@ export default {
   name: "App",
   provide() {
     return {
-      reload: this.reload
+      reload: this.reload,
     };
   },
   components: { FooterNav },
@@ -38,7 +38,7 @@ export default {
       isShowNav: false, // 是否显示底部导航 Tab
       activeNavIndex: 0, // 底部导航激活下标
       isRouterAlive: true, // 用于刷新页面用
-      navTabs: ["Home", "Category", "Cart", "User"] // 底部导航
+      navTabs: ["Home", "Category", "Cart", "User"], // 底部导航
     };
   },
   watch: {
@@ -78,7 +78,7 @@ export default {
         this.navName = "nav-slide";
         navTabs.includes(toName) && (this.isShowNav = true);
       }
-    }
+    },
   },
   methods: {
     /**
@@ -89,8 +89,8 @@ export default {
       this.$nextTick(() => {
         this.isRouterAlive = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
