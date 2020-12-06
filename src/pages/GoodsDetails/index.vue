@@ -36,9 +36,9 @@
       <van-goods-action-icon
         icon="chat-o"
         text="评价"
-        @click="goCommentGoods(item.id, item, id, item.count)"
+        @click="goCommentGoods(item.id, id, item.count)"
       />
-      <van-goods-action-icon icon="cart-o" text="购物车" @click="cart()" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="jumpCart()" />
       <van-goods-action-button
         type="warning"
         text="加入购物车"
@@ -251,6 +251,11 @@ export default {
      * 触摸结束 | 当一个触点被用户从触摸平面上移除
      */
     touchend() {},
+    jumpCart() {
+      this.$router.push({
+        name: "Cart",
+      });
+    },
     goCommentGoods(goods_id0, order_id0, orderNum0) {
       this.$router.push({
         name: "CommentGoods",

@@ -37,8 +37,8 @@ class Ajax {
   login(id, password) {
     return get(Url.getUser,{id,password})
   }
-  commentGoods(args) {
-    return get(Url.comment, { args });
+  commentGoods(cid, uid, star, content) {
+    return post(Url.comment, { cid, uid, star, content });
   }
 }
 export default new Ajax();

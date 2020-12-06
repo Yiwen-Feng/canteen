@@ -69,6 +69,7 @@ export default {
       checked: false, // 是否匿名
       defImg: 'this.src="' + require("../../assets/imgs/error-img.png") + '"',
       rateText: "非常满意",
+      cid: this.$route.params.goodsId,
     };
   },
   created() {
@@ -106,27 +107,28 @@ export default {
       //   order_id: this.order_id,
       //   orderNum: this.orderNum,
       // };
+
       var user_id = "";
-      if (!this.checked) {
+      if (!this.checked && this.global.log_id) {
         user_id = this.global.log_id;
       }
-      const args = {
-        cid: this.goodsId,
-        uid: user_id,
-        star: this.rate,
-        content: this.content,
-      };
       try {
-        const res = await ajax.commentGoods(args);
-        if (res.code === 200) {
-          this.$toast(res.msg);
+        const res = await ajax.commentGoods(
+          this.cid,
+          user_id,
+          this.rate,
+          this.content
+        );
+        if (res.status) {
+          // this.$toast(res.msg);
 
           setTimeout(() => {
             this.$router.back();
           }, 1500);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(res.status);
+        return this.$toast("评价失败");
       }
     },
     onChange(rate) {
