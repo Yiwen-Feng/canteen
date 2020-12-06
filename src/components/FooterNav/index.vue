@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { post } from "../../utils/http";
+import { Toast } from "vant";
 export default {
   name: "FooterNav",
   props: {
@@ -34,9 +36,32 @@ export default {
         { title: "购物车", name: "Cart", icon: "shopping-cart" },
         { title: "我的", name: "User", icon: "manager" }
       ],
-      goodsNumber: 1
+      goodsNumber: 0
     };
   },
+  created() {
+    try {
+      if (this.global.log_id != null) {
+        post("https://af2pds.toutiao15.com/get_cart", {
+          this:global.log_id
+        }).then(response => {
+          var result = response.cart;
+          this.goodsNumber = result.sum;
+          Toast(result.sum)
+          console.log(result.sum);
+          // console.log(result);
+          // result.forEach(item => {
+          //   this.goodsNumber++;
+          // });
+        });
+      }
+    } catch (error) {
+      return {
+        error: error.massage
+      };
+    }
+  },
+
   methods: {
     clickTab(index, name) {
       //if (this.activeNavIndex === index) return;

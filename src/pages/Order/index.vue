@@ -92,10 +92,10 @@ export default {
         id: this.item.id
       }).then(response => {
         let result = response.content;
-        this.item.title = result.commodity_name;
-        this.item.count = result.commodity_count;
-        this.item.price = result.commodity_price;
-        this.item.imgUrl = result.commodity_photo;
+        this.item.title = result.book_name;
+        //this.item.count = result.book_count;
+        this.item.price = result.price;
+        this.item.imgUrl = result.book_img;
       });
     } catch (e) {
       Toast("该图书不存在！");

@@ -122,7 +122,8 @@ export default {
           commodity_id: this.item.id,
         }).then((response) => {
           if (response.result) Toast("已加入购物车！");
-          else Toast("请登录！");
+          //else Toast("请登录！");
+          else Toast(this.user_id);
         });
       } catch (e) {
         Toast("添加失败！");
