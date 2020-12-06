@@ -40,7 +40,6 @@
                     :desc="item.text"
                     :thumb="item.image"
                     :title="item.title"
-                    origin-price="16.80"
                   >
                     <div slot="tags">
                       <van-button
@@ -134,7 +133,8 @@ export default {
   created() {
     try {
       post("https://af2pds.toutiao15.com/get_cart", {
-        user_id: "123456"
+        //user_id: "123456",
+        user_id: this.global.log_id
       }).then(response => {
         var result = response.cart;
         console.log(result);
@@ -145,13 +145,13 @@ export default {
             console.log(response);
             var commodity = {
               commodityId: response.content._id,
-              price: response.content.commodity_price,
-              title: response.content.commodity_name,
+              price: response.content.price,
+              title: response.content.book_name,
               num: 1,
-              sum: response.content.commodity_price,
+              sum: response.content.price,
               checked: false,
-              text: response.content.commodity_detail,
-              image: response.content.commodity_photo
+              text: response.content.book_detail,
+              image: response.content.book_img,
             };
             console.log(commodity);
             this.list.push(commodity);
