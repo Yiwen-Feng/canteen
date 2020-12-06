@@ -27,8 +27,7 @@
                 <van-row>
                   <van-col type="flex" justify="space-between">
                     <van-checkbox
-                      v-model="result"
-                      ref="checkboxGroup"
+                      v-model="checkboxlist[index]"
                       checked-color="#F79709"
                       @click="choose(item)"
                     ></van-checkbox>
@@ -64,9 +63,11 @@
               </div>
             </ul>
             <div class="nohaveshop" v-else>
-              <van-icon name="shopping-cart-o" />
-              <p class="p1">你的购物车空空如也~~</p>
-              <p class="p2">快去采购吧!</p>
+              <!-- <van-icon name="shopping-cart-o" /> -->
+              <p style="text-align: center; margin-top: 100px">
+                你的购物车空空如也~~
+              </p>
+              <p style="text-align: center;margin-top: 50px">快去采购吧!</p>
             </div>
             <br /><br />
             <br /><br />
@@ -103,7 +104,7 @@ import { Toast } from "vant";
 export default {
   components: {
     Topbar,
-    BScroll
+    BScroll,
   },
   data() {
     return {
@@ -124,24 +125,29 @@ export default {
         id: "123456",
         name: "张三",
         phone: "123456789",
-        address: "广东省广州市番禺区华南理工大学"
+        address: "广东省广州市番禺区华南理工大学",
       },
       commodity_list: [],
-      list: []
+      list: [],
+      //* fix checkbox
+      checkboxlist: [],
     };
   },
   created() {
     try {
+      // var log_id = localStorage.getItem("log_id");
+      this.get();
       post("https://af2pds.toutiao15.com/get_cart", {
         //user_id: "123456",
-        user_id: this.global.log_id
-      }).then(response => {
+        user_id: this.global.log_id,
+        // user_id: log_id,
+      }).then((response) => {
         var result = response.cart;
         console.log(result);
-        result.forEach(item => {
+        result.forEach((item) => {
           post("https://af2pds.toutiao15.com/get_commodity_byid", {
-            id: item.commodity_id
-          }).then(response => {
+            id: item.commodity_id,
+          }).then((response) => {
             console.log(response);
             var commodity = {
               commodityId: response.content._id,
@@ -160,7 +166,7 @@ export default {
       });
     } catch (error) {
       return {
-        error: error.massage
+        error: error.massage,
       };
     }
   },
@@ -177,21 +183,21 @@ export default {
           try {
             post("https://af2pds.toutiao15.com/delete_cart", {
               user_id: this.user.id,
-              commodity_id: listCopy[i]._id
-            }).then(response => {
+              commodity_id: listCopy[i]._id,
+            }).then((response) => {
               if (!response.result) {
                 alert("下单失败！");
               }
             });
           } catch (error) {
             return {
-              error: error.massage
+              error: error.massage,
             };
           }
           try {
             post("https://af2pds.toutiao15.com/update_commodity_num", {
               id: listCopy[i].commodityId,
-              count: listCopy[i].num
+              count: listCopy[i].num,
             });
             post("https://af2pds.toutiao15.com/add_order", {
               uid: this.user.id,
@@ -201,8 +207,8 @@ export default {
               cid: listCopy[i].commodityId,
               count: listCopy[i].num,
               money: listCopy[i].sum,
-              state: 2
-            }).then(response => {
+              state: 2,
+            }).then((response) => {
               console.log(response);
               if (!response.result) alert("下单失败！");
             });
@@ -229,16 +235,17 @@ export default {
       }
       try {
         post("https://af2pds.toutiao15.com/delete_cart", {
-          user_id: "123456",
-          commodity_id: item._id
-        }).then(response => {
+          // user_id: "123456",
+          user_id: this.global.log_id,
+          commodity_id: item._id,
+        }).then((response) => {
           if (response.result) {
             Toast("删除成功!");
           }
         });
       } catch (error) {
         return {
-          error: error.massage
+          error: error.massage,
         };
       }
       if (item.checked) {
@@ -269,8 +276,13 @@ export default {
       //this.$refs.checkboxGroup.toggleAll(true);
       this.status = !this.status; //取反改变状态
       this.status
-        ? this.list.forEach(item => this.choose(item))
-        : this.list.forEach(item => this.chooseFalse(item));
+        ? this.list.forEach((item) => this.choose(item))
+        : this.list.forEach((item) => this.chooseFalse(item));
+
+      //TODO: fix checkbox
+      for (let i = 0; i < this.list.length; i++) {
+        this.checkboxlist[i] = true;
+      }
     },
     //增加商品数量
     add(item) {
@@ -333,8 +345,8 @@ export default {
     /**
      * 触摸结束 | 当一个触点被用户从触摸平面上移除
      */
-    touchend() {}
-  }
+    touchend() {},
+  },
 };
 </script>
 

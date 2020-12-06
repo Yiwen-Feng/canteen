@@ -1,11 +1,9 @@
+/* eslint-disable prettier/prettier */
 <template>
   <div class="user">
     <top-bar title="个人中心"></top-bar>
     <!-- 头像 用户名 -->
-    <section
-      class="user-info"
-      v-if="!userToken || !userInfo || !this.global.log_id"
-    >
+    <section class="user-info" v-if="!userInfo || !this.global.log_id">
       <!--<section class="user-info">-->
       <img class="avatar" src="../../assets/imgs/avatar.jpg" />
       <p @click="$router.push({ name: 'Login' })">登录 / 注册</p>
@@ -124,18 +122,21 @@ export default {
         { icon: "logistics", status: 2, title: "待发货" },
         { icon: "points", status: 3, title: "待收货" },
         { icon: "like-o", status: 4, title: "已完成" },
-        { icon: "good-job-o", status: 5, title: "评价" }
+        { icon: "good-job-o", status: 5, title: "评价" },
       ],
-      userInfo: null, // 用户信息
+      userInfo: {
+        userName: "",
+        avatar: "",
+      }, // 用户信息
       orderNum: [], // 订单对应处理数量
-      isShowSetting: false // 是否显示用户设置
+      isShowSetting: false, // 是否显示用户设置
     };
   },
   watch: {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
       to.name === "User" && this._create();
-    }
+    },
   },
   created() {
     this._create();
@@ -147,8 +148,11 @@ export default {
       //let getuserid = await ajax.getUseridById("5ee1197219833e022bac4510");
       let userid = getuserid.userid;
 
-      let usrInfo = await ajax.getUserInfo(userid);
-      if(usrInfo.code===200)this.userInfo.userName = usrInfo.user_name;
+      let res = await ajax.getUserInfo(userid);
+      if (res.code === 200) {
+        this.userInfo.userName = res.user_name;
+        this.userInfo.avatar = res.user_photo;
+      }
     },
     /*
     goOrderManage(status) {
@@ -161,13 +165,19 @@ export default {
     /**
      * 退出登录状态
      */
-    logout() {},
+    logout() {
+      this.deleteUserToken();
+      this.delete();
+      this.$router.push({
+        name: "Login",
+      });
+    },
     goOrderManage(sta) {
       if (sta !== 5) {
         this.$router.push({ name: "OrderManage", params: { status: sta } });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

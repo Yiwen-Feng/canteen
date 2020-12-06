@@ -131,7 +131,7 @@
 import Back from "@/components/Back";
 import { GoodsMixin } from "@/mixins/goodsMixin";
 import ajax from "@/api";
-import {Toast} from"vant"
+import { Toast } from "vant";
 export default {
   name: "Login",
   mixins: [GoodsMixin],
@@ -147,7 +147,7 @@ export default {
       smsCode: "", // 短信验证码
       isLoading: false, // 登录 或 注册按钮状态
       countdownText: "", // 倒计时文本
-      cDTime: 60 // 60 秒倒计时
+      cDTime: 60, // 60 秒倒计时
     };
   },
   created() {
@@ -180,7 +180,7 @@ export default {
         "password",
         "verifyCode",
         "mobilePhone",
-        "smsCode"
+        "smsCode",
       ];
       for (let item of resetData) {
         this[item] = "";
@@ -192,7 +192,7 @@ export default {
      * @return {Boolean} 验证失败或成功
      */
     _checkForm(flag) {
-      let toast = text => {
+      let toast = (text) => {
         this.$toast(text);
         return false;
       };
@@ -206,7 +206,7 @@ export default {
         case 2:
           if (!this.userName) return toast("请输入账号");
           if (!this.password) return toast("请输入密码");
-          if (this.mobilePhone.length === 0) return toast("请输入正确的账号");
+          // if (this.mobilePhone.length === 0) return toast("请输入正确的账号");
           //if (!this.smsCode) return toast("请输入短信验证码");
           break;
       }
@@ -220,9 +220,9 @@ export default {
       if (!this._checkForm(2)) return;
 
       this.isLoading = true; // 按钮加载状态
-      let { userName, password, mobilePhone, smsCode } = this.$data;
+      let { userName, password } = this.$data;
       try {
-        let res = await ajax.register(userName, password, mobilePhone, smsCode);
+        let res = await ajax.register(userName, password);
         console.log(res);
         if (res.result) {
           Toast("注册成功");
@@ -257,12 +257,15 @@ export default {
         console.log(res);
         if (res.result) {
           Toast("登录成功");
+
+          //* store id & log_state into localStorage
           this.change_log_state(true);
           console.log(res.id);
           this.change_log_id(res.id);
           //设置全局id和status
           this.set();
 
+          //* store token into localStorage
           res.token &&
             this.setUserToken(res.token) &&
             setTimeout(() => this.$router.back(), 1000);
@@ -284,7 +287,7 @@ export default {
     },
     goUser() {
       this.$router.push({
-        name: "Home"
+        name: "Home",
       });
     },
     /**
@@ -337,8 +340,8 @@ export default {
      */
     _updatePicCode() {
       this.$refs.picCode["src"] = ajax.sendPicCode();
-    }
-  }
+    },
+  },
 };
 </script>
 

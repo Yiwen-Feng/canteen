@@ -3,11 +3,12 @@ $color: #F79709;
 .user {
   .user-info {
     position: relative;
+    font-weight: bolder;
     display: flex;
     flex-direction: column;
     align-items: center;
     //background: $color;
-    background-image: url("../../assets/imgs/hotGoods1.jpeg");
+    background-image: url("../../assets/imgs/display1.jpeg");
     padding: 10% 0;
     .avatar {
       width: 4rem;

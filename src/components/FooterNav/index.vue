@@ -25,7 +25,7 @@ import { Toast } from "vant";
 export default {
   name: "FooterNav",
   props: {
-    activeNavIndex: { type: Number, default: 0 }
+    activeNavIndex: { type: Number, default: 0 },
   },
   data() {
     return {
@@ -34,20 +34,20 @@ export default {
         { title: "分类", name: "Category", icon: "wap-nav" },
         //{ title: "排行榜", name: "Rank", icon: "medal" },
         { title: "购物车", name: "Cart", icon: "shopping-cart" },
-        { title: "我的", name: "User", icon: "manager" }
+        { title: "我的", name: "User", icon: "manager" },
       ],
-      goodsNumber: 0
+      goodsNumber: 0,
     };
   },
   created() {
     try {
       if (this.global.log_id != null) {
         post("https://af2pds.toutiao15.com/get_cart", {
-          this:global.log_id
-        }).then(response => {
+          user_id: this.global.log_id,
+        }).then((response) => {
           var result = response.cart;
           this.goodsNumber = result.sum;
-          Toast(result.sum)
+          Toast(result.sum);
           console.log(result.sum);
           // console.log(result);
           // result.forEach(item => {
@@ -57,7 +57,7 @@ export default {
       }
     } catch (error) {
       return {
-        error: error.massage
+        error: error.massage,
       };
     }
   },
@@ -66,8 +66,8 @@ export default {
     clickTab(index, name) {
       //if (this.activeNavIndex === index) return;
       this.$router.push({ name });
-    }
-  }
+    },
+  },
 };
 </script>
 

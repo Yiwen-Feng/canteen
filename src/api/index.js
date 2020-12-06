@@ -40,5 +40,8 @@ class Ajax {
   commentGoods(cid, uid, star, content) {
     return post(Url.comment, { cid, uid, star, content });
   }
+  register(id, password) {
+    return post(Url.register, { id, password });
+  }
 }
 export default new Ajax();

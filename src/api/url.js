@@ -13,5 +13,6 @@ export const Url = {
   getUser: "https://af2pds.toutiao15.com/get_user", //登录用
   getUserInfo: "https://af2pds.toutiao15.com/get_user_byid",
   //TestApi: "https://afgwgu.toutiao15.com/findOneFromGoodsTable
-  comment: "https://af2pds.fn.thelarkcloud.com/add_review"
+  comment: "https://af2pds.fn.thelarkcloud.com/add_review",
+  register: "https://af2pds.fn.thelarkcloud.com/add_user"
 };

@@ -26,6 +26,12 @@ Vue.prototype.set = function() {
   window.localStorage.setItem("log_state", this.global.log_state);
   window.localStorage.setItem("log_id", this.global.log_id);
 };
+
+Vue.prototype.delete = function() {
+  window.localStorage.removeItem("log_state");
+  window.localStorage.removeItem("log_id");
+};
+
 Vue.prototype.get = function() {
   this.global.log_state = window.localStorage.getItem("log_state");
   this.global.log_id = window.localStorage.getItem("log_id");

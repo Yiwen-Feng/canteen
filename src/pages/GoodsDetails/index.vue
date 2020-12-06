@@ -73,7 +73,9 @@ export default {
   data() {
     return {
       title: " ",
-      user_id: this.global.log_id,
+      //! sometimes this.global.log_id is null
+      // user_id: this.global.log_id,
+      user_id: localStorage.getItem("log_id"),
       item: {
         id: "",
         title: "",
