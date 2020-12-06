@@ -11,12 +11,12 @@
           <p class="detail">
             <span class="code">￥</span>
             <span class="price">{{ item.price }}</span>
-            <span class="count">库存：{{ item.count }}</span>
+            <!-- <span class="count">库存：{{ item.count }}</span> -->
           </p>
-          <p class="text">分类：{{ item.category }}</p>
+          <!-- <p class="text">分类：{{ item.category }}</p> -->
           <p class="text">详情：{{ item.text }}</p>
         </div>
-        <p class="title">用户书评</p>
+        <p class="title">用户评价</p>
         <div
           class="comment_area"
           v-for="(comment, index) in item.comments"
@@ -36,7 +36,7 @@
       <van-goods-action-icon
         icon="chat-o"
         text="评价"
-        @click="goCommentGoods(item.id,item,id,item.count)"
+        @click="goCommentGoods(item.id, item, id, item.count)"
       />
       <van-goods-action-icon icon="cart-o" text="购物车" />
       <van-goods-action-button
@@ -67,7 +67,7 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     TopBar,
     BScroll,
-    Back
+    Back,
   },
   props: ["goodsId"],
   data() {
@@ -83,7 +83,7 @@ export default {
         category_id: "",
         category: "",
         imgUrl: require("@/assets/imgs/xiamu.png"),
-        comments: []
+        comments: [],
       },
       stars: require("@/assets/imgs/stars.png"),
       listenScroll: true, // 监听滚动位置
@@ -101,7 +101,7 @@ export default {
       isTrans: false,
       translateY: 0,
       rotate: 0,
-      opac: 0
+      opac: 0,
     };
   },
   watch: {
@@ -109,7 +109,7 @@ export default {
     $route(to, from) {
       to.name === "GoodsDetails" &&
         this._goodsDetails(this.$route.query.goodsId || this.$route.query.id);
-    }
+    },
   },
   created() {
     this._goodsDetails(this.goodsId);
@@ -119,8 +119,8 @@ export default {
       try {
         post("https://af2pds.toutiao15.com/add_cart", {
           user_id: this.user_id,
-          commodity_id: this.item.id
-        }).then(response => {
+          commodity_id: this.item.id,
+        }).then((response) => {
           if (response.result) Toast("已加入购物车！");
           else Toast("请登录！");
         });
@@ -131,46 +131,51 @@ export default {
     jump(value1) {
       this.$router.push({
         name: "Order",
-        query: { id: value1 }
+        query: { id: value1 },
       });
     },
     back() {
       this.$router.push({
-        name: "Home"
+        name: "Home",
       });
     },
     // eslint-disable-next-line no-unused-vars
     async _goodsDetails(goodsId) {
-      this.item.id = this.$route.query.goodsId || this.$route.query.id;
+      //! problematic
+      this.item.id = this.$route.query.goodsId;
+      // this.item.id = this.$route.query.goodsId || this.$route.query.id;
       //this.item.id = goodsId;
       try {
         post("https://af2pds.toutiao15.com/get_commodity_byid", {
-          id: this.item.id
-        }).then(response => {
+          id: this.item.id,
+        }).then((response) => {
           let result = response.content;
           console.log(this.result);
-          this.item.title = result.commodity_name;
+          // this.item.title = result.commodity_name;
+          this.item.title = result.book_name;
           this.item.category_id = result.category_id;
           this.item.count = result.commodity_count;
-          this.item.price = result.commodity_price;
+          // this.item.price = result.commodity_price;
+          this.item.price = result.book_price;
           this.item.text = result.commodity_detail;
-          this.item.imgUrl = result.commodity_photo;
+          // this.item.imgUrl = result.commodity_photo;
+          this.item.imgUrl = result.book_img;
           post("https://af2pds.toutiao15.com/get_category", {
-            id: this.item.category_id
-          }).then(response => {
+            id: this.item.category_id,
+          }).then((response) => {
             this.item.category = response.category_name;
           });
         });
         post("https://af2pds.toutiao15.com/get_review_bybookid", {
-          id: this.item.id
-        }).then(response => {
+          id: this.item.id,
+        }).then((response) => {
           if (response.result) {
             let result = response.views;
             for (let i = 0; i < result.length; i++) {
               let comment = {
                 user: "用户1",
                 star: require("@/assets/imgs/stars.png"),
-                comment_detail: result[i].review_content
+                comment_detail: result[i].review_content,
               };
               switch (result[i].review_star) {
                 case 1:
@@ -190,8 +195,8 @@ export default {
               }
 
               post("https://af2pds.toutiao15.com/get_user_byid", {
-                id: result[i].user_id
-              }).then(response => {
+                id: result[i].user_id,
+              }).then((response) => {
                 comment.user = response.user_name;
                 this.item.comments.push(comment);
               });
@@ -249,10 +254,14 @@ export default {
     goCommentGoods(goods_id0, order_id0, orderNum0) {
       this.$router.push({
         name: "CommentGoods",
-        params: { goodsId: goods_id0, order_id: order_id0, orderNum: orderNum0 }
+        params: {
+          goodsId: goods_id0,
+          order_id: order_id0,
+          orderNum: orderNum0,
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

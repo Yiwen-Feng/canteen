@@ -189,7 +189,7 @@ export default {
       orderList1: [], // 待付款订单列表
       orderList2: [], // 待发货订单列表
       orderList3: [], // 待收货订单列表
-      orderList4: [] // 已完成订单列表
+      orderList4: [], // 已完成订单列表
     };
   },
   watch: {},
@@ -224,6 +224,8 @@ export default {
             );
             this.orderList[i].title = temp.content.commodity_name;
             this.orderList[i].pic = temp.content.commodity_photo;
+            // this.orderList[i].title = temp.content.book_name;
+            // this.orderList[i].pic = temp.content.book_img;
             if (this.orderList[i].status < 4) {
               this.orderList[i].buttonStatus = true;
             } else {
@@ -250,7 +252,7 @@ export default {
     goOrdersDetails(id, pic, title) {
       this.$router.push({
         name: "OrdersDetails",
-        params: { orderId: id, picture: pic, bookname: title }
+        params: { orderId: id, picture: pic, bookname: title },
       });
     },
     onLoad() {
@@ -278,8 +280,8 @@ export default {
       // 将 loading 设置为 true，表示处于加载状态
       this.loading = true;
       this.onLoad();
-    }
-  }
+    },
+  },
 };
 </script>
 

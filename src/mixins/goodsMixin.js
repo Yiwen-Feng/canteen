@@ -41,7 +41,7 @@ export const GoodsMixin = {
     goGoodsDetails(item) {
       this.$router.push({
         name: "GoodsDetails",
-        query: { goodsId: item.goodsId || item.id }
+        query: { goodsId: item.goodsId || item.id || item._id }
       });
     },
     // 退回到上一页

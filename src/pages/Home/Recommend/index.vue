@@ -53,60 +53,61 @@ export default {
         autoplay: true,
         pagination: {
           el: ".swiper-pagination",
-          clickable: true
-        }
+          clickable: true,
+        },
       },
       recommend: [
         {
           image: require("@/assets/imgs/recommend1.jpg"),
           mallPrice: 15.0,
-          goodsId: "1",
+          //! problematic: goodsId should be _id
+          goodsId: "5fcb73c709254b0216b30487",
           price: 18.0,
-          goodsName: "五谷渔粉"
+          goodsName: "五谷渔粉",
         },
         {
           image: require("@/assets/imgs/recommend2.jpg"),
           mallPrice: 15.0,
-          goodsId: "2",
+          goodsId: "5fcb738009254b0216b3047e",
           price: 15.0,
-          goodsName: "咖喱牛肉饭"
+          goodsName: "咖喱牛肉饭",
         },
         {
           image: require("@/assets/imgs/recommend3.jpg"),
           mallPrice: 13.8,
-          goodsId: "3",
+          goodsId: "5fcb732a09254b0216b30470",
           price: 13.8,
-          goodsName: "麻辣烫"
+          goodsName: "麻辣烫",
         },
         {
           image: require("@/assets/imgs/recommend4.jpg"),
           mallPrice: 12.0,
-          goodsId: "3",
+          goodsId: "5fcb899909254b0216b30498",
           price: 12.8,
-          goodsName: "炒饭"
+          goodsName: "炒饭",
         },
         {
           image: require("@/assets/imgs/recommend5.jpeg"),
           mallPrice: 18.0,
-          goodsId: "3",
+          goodsId: "5fcb899c09254b0216b3049b",
           price: 20.0,
-          goodsName: "酸菜鱼"
+          goodsName: "酸菜鱼",
         },
         {
           image: require("@/assets/imgs/recommend6.jpg"),
           mallPrice: 16.0,
-          goodsId: "3",
+          goodsId: "5fcb899509254b0216b30496",
           price: 16.8,
-          goodsName: "重庆小面"
+          goodsName: "重庆小面",
         },
         {
           image: require("@/assets/imgs/recommend7.jpg"),
           mallPrice: 13.0,
-          goodsId: "3",
+          goodsId: "5fcb899e9d4427038974791a",
           price: 13.0,
-          goodsName: "烤鱼饭"
-        }
-      ]
+          goodsName: "烤鱼饭",
+        },
+      ],
     };
   },
   methods: {
@@ -129,8 +130,8 @@ export default {
           this.$router.push({ name: "Login" });
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

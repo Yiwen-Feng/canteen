@@ -10,7 +10,12 @@
         :key="item.goodsId"
         @click="goGoodsDetails(item)"
       >
-        <img v-lazy="item.image" height="180" width="300" class="hot-goods-img" />
+        <img
+          v-lazy="item.image"
+          height="180"
+          width="300"
+          class="hot-goods-img"
+        />
         <p class="name">{{ item.name }}</p>
         <p class="price">
           <span class="code">￥</span>
@@ -35,36 +40,36 @@ export default {
     return {
       hotGoods: [
         {
-          mallPrice: 7.00,
+          mallPrice: 7.0,
           image: require("@/assets/imgs/hot1.jpg"),
-          goodsId: "1",
-          price: 7.00,
-          name: "肠粉"
+          goodsId: "5fcb72d99d442703897478f6",
+          price: 7.0,
+          name: "肠粉",
         },
         {
-          mallPrice: 14.00,
+          mallPrice: 14.0,
           image: require("@/assets/imgs/hot2.jpg"),
-          goodsId: "5ee043a9f6a000000a7b191b",
-          price: 14.00,
-          name: "牛肉面"
+          goodsId: "5fcb899509254b0216b30496",
+          price: 14.0,
+          name: "重庆小面",
         },
         {
-          mallPrice: 10.00,
+          mallPrice: 10.0,
           image: require("@/assets/imgs/hot3.jpg"),
-          goodsId: "3",
-          price: 12.00,
-          name: "兰州拉面"
+          goodsId: "5fcb723409254b0216b30463",
+          price: 12.0,
+          name: "兰州拉面",
         },
         {
-          mallPrice: 14.00,
+          mallPrice: 14.0,
           image: require("@/assets/imgs/hot4.jpg"),
-          goodsId: "4",
-          price: 15.00,
-          name: "鸡扒饭"
-        }
-      ]
+          goodsId: "5fcb71b409254b0216b3045d",
+          price: 15.0,
+          name: "鸡扒饭",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
